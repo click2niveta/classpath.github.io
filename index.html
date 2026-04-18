@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClassPath</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <nav class="top-nav" aria-label="ClassPath pages">
+      <a class="nav-link active" href="./index.html">Map</a>
+      <a class="nav-link" href="./events.html">Events</a>
+      <a class="nav-link" href="./lost-found.html">Lost &amp; Found</a>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">CS Capstone Project</p>
+        <h1>ClassPath</h1>
+        <p class="hero-text">
+          A campus navigation app that lets users choose where they are, pick a destination, and see
+          the walking path directly on the school map like a lightweight GPS.
+        </p>
+        <div class="hero-badges">
+          <span>Route guidance</span>
+          <span>Walking path overlay</span>
+          <span>Destination search</span>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h2>Project Goal</h2>
+        <p>
+          Show how ClassPath can guide students and visitors from a starting point to a destination using
+          a visible path overlay on the official campus map.
+        </p>
+        <ul class="hero-list">
+          <li>Choose a start point and destination</li>
+          <li>Draw the route directly on the map</li>
+          <li>Show matching location details for the user</li>
+        </ul>
+      </aside>
+    </header>
+
+    <main class="dashboard">
+      <section class="panel controls-panel">
+        <div class="panel-header">
+          <h2>Route Controls</h2>
+          <p>Pick a start point, search a destination, then click a result to generate the walking route.</p>
+        </div>
+
+        <label class="field-label" for="searchInput">Search for a location</label>
+        <div class="search-row">
+          <input id="searchInput" type="search" placeholder="Try A201, Theater, Gym, Learning Commons...">
+          <button id="clearSearch" type="button">Clear</button>
+        </div>
+
+        <div class="filter-group" id="categoryFilters" aria-label="Location category filters"></div>
+
+        <div class="start-row">
+          <label class="field-label" for="startSelect">Starting point</label>
+          <select id="startSelect">
+            <option value="front-office">Front Office Entrance</option>
+            <option value="student-parking">Student Parking Lot</option>
+            <option value="gym-entrance">Gym Entrance</option>
+            <option value="theater-lobby">Theater Lobby Entrance</option>
+            <option value="portable-walkway">Portable Walkway</option>
+          </select>
+        </div>
+
+        <div class="results-header">
+          <h3>Matching Locations</h3>
+          <span id="resultCount">0 results</span>
+        </div>
+        <div class="results-list" id="resultsList" aria-live="polite"></div>
+      </section>
+
+      <section class="panel map-panel">
+        <div class="panel-header">
+          <h2>Campus Route Map</h2>
+          <p>ClassPath draws the route on top of the campus map so the user can follow the path visually.</p>
+        </div>
+
+        <div class="map-stage">
+          <img src="./assets/campus-map.jpg" alt="MHHS campus map" class="campus-map">
+          <svg id="routeOverlay" class="route-overlay" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+          <div id="hotspotLayer" class="hotspot-layer" aria-label="Interactive campus map"></div>
+        </div>
+
+        <div class="legend">
+          <div><span class="legend-route"></span>Active route</div>
+          <div><span class="legend-dot academic"></span>Academic</div>
+          <div><span class="legend-dot arts"></span>Arts</div>
+          <div><span class="legend-dot athletics"></span>Athletics</div>
+          <div><span class="legend-dot admin"></span>Admin</div>
+          <div><span class="legend-dot support"></span>Student support</div>
+          <div><span class="legend-dot portable"></span>Portables</div>
+        </div>
+      </section>
+
+      <section class="panel details-panel">
+        <div class="panel-header">
+          <h2>Location Details</h2>
+          <p>Destination details and route guidance update here.</p>
+        </div>
+
+        <article id="detailCard" class="detail-card">
+          <p class="detail-empty">Select a room or area to view details and directions.</p>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

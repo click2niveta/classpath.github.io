@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClassPath Lost and Found</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <nav class="top-nav" aria-label="ClassPath pages">
+      <a class="nav-link" href="./index.html">Map</a>
+      <a class="nav-link" href="./events.html">Events</a>
+      <a class="nav-link active" href="./lost-found.html">Lost &amp; Found</a>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Lost And Found Locator</p>
+        <h1>ClassPath Lost &amp; Found</h1>
+        <p class="hero-text">
+          Browse reported missing items, see where they were last reported lost, and get route guidance so
+          students can walk to that location quickly.
+        </p>
+        <div class="hero-badges">
+          <span>Reported items</span>
+          <span>Last seen location</span>
+          <span>Route to report spot</span>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h2>How It Works</h2>
+        <p>
+          Each report shows the item, when it was reported, where it was last seen, and a route preview
+          from the selected starting point. The map button opens the full walking route in ClassPath.
+        </p>
+        <ul class="hero-list">
+          <li>Choose a starting point</li>
+          <li>Review the report card</li>
+          <li>Open the route on the map page</li>
+        </ul>
+      </aside>
+    </header>
+
+    <main class="events-layout">
+      <section class="panel controls-panel">
+        <div class="panel-header">
+          <h2>Route Start</h2>
+          <p>Choose where the student is starting from before checking lost item directions.</p>
+        </div>
+
+        <div class="start-row">
+          <label class="field-label" for="lostStartSelect">Starting point</label>
+          <select id="lostStartSelect">
+            <option value="front-office">Front Office Entrance</option>
+            <option value="student-parking">Student Parking Lot</option>
+            <option value="gym-entrance">Gym Entrance</option>
+            <option value="theater-lobby">Theater Lobby Entrance</option>
+            <option value="portable-walkway">Portable Walkway</option>
+          </select>
+        </div>
+
+        <div class="panel-header">
+          <h2>Report Missing Item</h2>
+          <p>Submit a new missing item report with the last known location on campus.</p>
+        </div>
+
+        <form id="reportForm" class="report-form">
+          <label class="field-label" for="itemNameInput">Item name</label>
+          <input id="itemNameInput" name="itemName" type="text" placeholder="Black water bottle" required>
+
+          <label class="field-label" for="reportLocationSelect">Last seen location</label>
+          <select id="reportLocationSelect" name="locationId" required>
+            <option value="learning-commons">Learning Commons</option>
+            <option value="c-wing">C-Wing Classrooms</option>
+            <option value="large-gym">Large Gym</option>
+            <option value="theater">Theater</option>
+            <option value="stadium">Stadium</option>
+            <option value="portables">Portables</option>
+          </select>
+
+          <label class="field-label" for="reportDetailsInput">Report details</label>
+          <textarea id="reportDetailsInput" name="details" rows="4" placeholder="Last seen near the front row seats after lunch." required></textarea>
+
+          <button type="submit" class="submit-button">Report Missing Item</button>
+          <p id="reportMessage" class="form-message" aria-live="polite"></p>
+        </form>
+
+        <div class="panel-header">
+          <h2>Report Notes</h2>
+          <p>
+            These are sample lost-and-found reports for the project. Each one routes to the place where the
+            item was reported lost so the student can check that area first.
+          </p>
+        </div>
+      </section>
+
+      <section class="events-grid" id="lostFoundGrid" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <script src="./lost-found.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClassPath Events</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <nav class="top-nav" aria-label="ClassPath pages">
+      <a class="nav-link" href="./index.html">Map</a>
+      <a class="nav-link active" href="./events.html">Events</a>
+      <a class="nav-link" href="./lost-found.html">Lost &amp; Found</a>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">School Events</p>
+        <h1>ClassPath Events</h1>
+        <p class="hero-text">
+          Browse school events, see when they happen, and get route guidance to the venue straight from
+          your selected starting point on campus.
+        </p>
+        <div class="hero-badges">
+          <span>Event schedule</span>
+          <span>Venue details</span>
+          <span>Route handoff to map</span>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h2>What This Page Shows</h2>
+        <p>
+          Each event card includes the event time, venue, audience, and a simple “how to get there”
+          preview. Use the map button to open the full route overlay in ClassPath.
+        </p>
+        <ul class="hero-list">
+          <li>Select a campus starting point</li>
+          <li>See event route guidance instantly</li>
+          <li>Open the full route on the map page</li>
+        </ul>
+      </aside>
+    </header>
+
+    <main class="events-layout">
+      <section class="panel controls-panel">
+        <div class="panel-header">
+          <h2>Event Filters</h2>
+          <p>Choose where the user is starting from before checking event directions.</p>
+        </div>
+
+        <div class="start-row">
+          <label class="field-label" for="eventStartSelect">Starting point</label>
+          <select id="eventStartSelect">
+            <option value="front-office">Front Office Entrance</option>
+            <option value="student-parking">Student Parking Lot</option>
+            <option value="gym-entrance">Gym Entrance</option>
+            <option value="theater-lobby">Theater Lobby Entrance</option>
+            <option value="portable-walkway">Portable Walkway</option>
+          </select>
+        </div>
+
+        <div class="panel-header">
+          <h2>Add Event</h2>
+          <p>Create a new school event with a time, venue, audience, and short description.</p>
+        </div>
+
+        <form id="eventForm" class="report-form">
+          <label class="field-label" for="eventTitleInput">Event title</label>
+          <input id="eventTitleInput" name="title" type="text" placeholder="Senior Awards Night" required>
+
+          <label class="field-label" for="eventTimeInput">Time</label>
+          <input id="eventTimeInput" name="time" type="text" placeholder="Thursday, 6:00 PM" required>
+
+          <label class="field-label" for="eventVenueSelect">Venue</label>
+          <select id="eventVenueSelect" name="venueId" required>
+            <option value="theater">Theater</option>
+            <option value="band-room">Band Room B153</option>
+            <option value="multi-use-room">Multi Use Room</option>
+            <option value="large-gym">Large Gym</option>
+            <option value="stadium">Stadium</option>
+            <option value="learning-commons">Learning Commons</option>
+          </select>
+
+          <label class="field-label" for="eventAudienceInput">Audience</label>
+          <input id="eventAudienceInput" name="audience" type="text" placeholder="Students and families" required>
+
+          <label class="field-label" for="eventDescriptionInput">Description</label>
+          <textarea id="eventDescriptionInput" name="description" rows="4" placeholder="Brief event summary." required></textarea>
+
+          <button type="submit" class="submit-button">Add Event</button>
+          <p id="eventMessage" class="form-message" aria-live="polite"></p>
+        </form>
+
+        <div class="panel-header">
+          <h2>Event Notes</h2>
+          <p>
+            These events are sample school events for the capstone project. Each event links directly into the
+            route map with the destination already selected.
+          </p>
+        </div>
+      </section>
+
+      <section class="events-grid" id="eventsGrid" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <script src="./events.js"></script>
+</body>
+</html>
